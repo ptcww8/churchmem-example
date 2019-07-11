@@ -1,0 +1,61 @@
+<%= form_with(model: member_account, local: true) do |form| %>
+  <% if member_account.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(member_account.errors.count, "error") %> prohibited this member_account from being saved:</h2>
+
+      <ul>
+      <% member_account.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :age %>
+    <%= form.number_field :age %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date_of_birth %>
+    <%= form.date_select :date_of_birth %>
+  </div>
+
+  <div class="field">
+    <%= form.label :gender %>
+		<% gender = current_user.member_account ? current_user.member_account.gender : "Male" %>
+		<%= select_tag "member_account[gender]", options_for_select([ "Male", "Female" ], gender) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address %>
+    <%= form.text_area :address %>
+  </div>
+
+  <div class="field">
+    <%= form.label :picture %>
+		<%= form.file_field :picture %>
+  </div>
+
+  <div class="field">
+    <%= form.label :marital_status %>
+		<% marital_status = current_user.member_account ? current_user.member_account.marital_status : "Married" %>
+		<%= select_tag "member_account[marital_status]", options_for_select([ "Married", "Single" ], marital_status) %>
+  </div>
+
+	<%= hidden_field_tag 'member_account[user_id]', current_user.id %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

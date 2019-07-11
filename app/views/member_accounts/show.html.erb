@@ -1,0 +1,42 @@
+<p>
+  <strong>First name:</strong>
+  <%= @member_account.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @member_account.last_name %>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @member_account.age %>
+</p>
+
+<p>
+  <strong>Date of birth:</strong>
+  <%= @member_account.date_of_birth %>
+</p>
+
+<p>
+  <strong>Gender:</strong>
+  <%= @member_account.gender %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @member_account.address %>
+</p>
+
+<p>
+  <strong>Picture:</strong>
+	<%= image_tag @member_account.picture %>
+</p>
+
+<p>
+  <strong>Marital status:</strong>
+  <%= @member_account.marital_status %>
+</p>
+
+<%= link_to 'Edit', edit_member_account_path(@member_account) %> |
+<%= link_to 'Back', member_accounts_path %>
