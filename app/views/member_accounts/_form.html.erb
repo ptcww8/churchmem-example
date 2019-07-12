@@ -11,51 +11,51 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :first_name %>
-    <%= form.text_field :first_name %>
+    <%= form.text_field :first_name, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :last_name %>
-    <%= form.text_field :last_name %>
+    <%= form.text_field :last_name, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :age %>
-    <%= form.number_field :age %>
+    <%= form.number_field :age, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :date_of_birth %>
-    <%= form.date_select :date_of_birth %>
+    <%= form.date_select :date_of_birth, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :gender %>
 		<% gender = current_user.member_account ? current_user.member_account.gender : "Male" %>
-		<%= select_tag "member_account[gender]", options_for_select([ "Male", "Female" ], gender) %>
+		<%= select_tag "member_account[gender]", options_for_select([ "Male", "Female" ], gender), class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :address %>
-    <%= form.text_area :address %>
+    <%= form.text_area :address, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :picture %>
-		<%= form.file_field :picture %>
+		<%= form.file_field :picture, class: 'form-control-file' %>
   </div>
 
   <div class="field">
     <%= form.label :marital_status %>
 		<% marital_status = current_user.member_account ? current_user.member_account.marital_status : "Married" %>
-		<%= select_tag "member_account[marital_status]", options_for_select([ "Married", "Single" ], marital_status) %>
+		<%= select_tag "member_account[marital_status]", options_for_select([ "Married", "Single" ], marital_status), class: 'form-control' %>
   </div>
 
 	<%= hidden_field_tag 'member_account[user_id]', current_user.id %>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Update My Information", class:"btn btn-primary" %>
   </div>
 <% end %>

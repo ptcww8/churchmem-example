@@ -1,4 +1,12 @@
-<p>
+
+<div class="container-fluid bg-3 text-left">
+  <div class="row">
+    <div class="col-md-6">
+				<%#= image_tag @member_account.picture %>
+			  <img src="<%= polymorphic_url(@member_account.picture) %>" class="img-responsive" style="width:100%" alt="Image">
+    </div>
+    <div class="col-md-6"> 
+      <p>
   <strong>First name:</strong>
   <%= @member_account.first_name %>
 </p>
@@ -29,14 +37,20 @@
 </p>
 
 <p>
-  <strong>Picture:</strong>
-	<%= image_tag @member_account.picture %>
-</p>
-
-<p>
   <strong>Marital status:</strong>
   <%= @member_account.marital_status %>
 </p>
 
-<%= link_to 'Edit', edit_member_account_path(@member_account) %> |
-<%= link_to 'Back', member_accounts_path %>
+<%= link_to 'Edit', edit_member_account_path(@member_account), class:"btn btn-danger" %>
+<%= link_to 'Destroy', @member_account, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-warning" %>
+<%= link_to 'Back', member_accounts_path, class:"btn btn-primary" %>		
+			
+			
+    </div>
+  </div>
+</div>
+
+
+
+
+
